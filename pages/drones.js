@@ -49,7 +49,7 @@ const Drones = () => {
     <div className='overflow-auto'>
       <div className='flex justify-between'>
         <h1 className='justify-start mt-5 mx-5 text-3xl'>Drones Overview</h1>
-        <button className='flex flex-row py-2 w-36 h-10 bg-darkpurple text-white rounded-full mt-16 mr-10 text-center'
+        <button className='flex flex-row py-2 w-36 h-10 bg-superdarkpurple text-white rounded-full mt-16 mr-10 text-center'
           onClick={handleStartMissionClick}
         >
           <PlusIcon />Start mission
@@ -61,7 +61,7 @@ const Drones = () => {
           onClick={() => setFilter('Ongoing')}>
           <CheckIcon />Ongoing
         </button>
-        <button className={`px-4 py-2.5 ml-5 bg-lightpurple rounded-lg ${filter === 'past' ? 'bg-clickedpurple' : 'bg-lightpurple'}`}
+        <button className={`px-4 py-2.5 ml-5 bg-lightpurple rounded-lg ${filter === 'Past' ? 'bg-clickedpurple' : 'bg-lightpurple'}`}
           onClick={() => setFilter('Past')}>
           Past
         </button>
