@@ -1,10 +1,9 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import React from 'react'
 
-export default function Home() {
+const Home = () => {
   return (
-   <div>
-    <p className='text-5xl'>Dashboard</p>
-   </div>
+    <div>Home</div>
   )
 }
+
+export default Home
