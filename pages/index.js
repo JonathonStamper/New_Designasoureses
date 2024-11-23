@@ -2,12 +2,14 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { json } from 'react-router-dom'
+import Predictions_filter from '../components/predictions_filter'
 
 
 
 export default function Home() {
   const [collection, setCollection] = useState([])
   const [builderData, setBuilderData] = useState()
+  const [selectedFilter, setSelectedFilter] = useState('')
   const builderSetting = {
     id: "COPERNICUS/S1_GRD",
   coords: {west: 16.06, south: 48.06, east: 16.65, north: 48.35},
@@ -24,8 +26,6 @@ export default function Home() {
 
       const data = await response.json();
       setCollection(data.collections
-        // .filter(
-        // (item) => item.description && item.description.toLowerCase().includes('flood')
       );
     };
 
@@ -64,13 +64,24 @@ export default function Home() {
        fetchBuilderData()
   }, [])
 
- 
+  
+  // useEffect(() =>{
+  //   setCollection(collection.filter((item) => item.description.toLowerCase().includes(selectedFilter.toLowerCase())))
+  //   console.log(collection)
 
-  console.log(collection)
+  // }, [selectedFilter])
+
+  const filteredData = collection.filter((item) => item.description.toLowerCase().includes(selectedFilter.toLowerCase()))
+
+
+
   console.log('builder hope', builderData)
+
+  console.log(filteredData)
   return (
    <div>
     <p className='text-5xl'>Dashboard</p>
+    <Predictions_filter setSelectedFilter={setSelectedFilter}/>
    </div>
   )
 }

@@ -2,15 +2,13 @@ import { OpenEO } from '@openeo/js-client';
 
 export default async function initializeConnection () {
   try {
-    var connection = await OpenEO.connect("https://openeo.dataspace.copernicus.eu");
+    var connection = await OpenEO.connect("https://earthengine.openeo.org");
     // Success
   } catch (error) {
     // Error
   }
 
-
   var info = connection.capabilities();
-  console.log(info.description)
   return connection
 //   console.log("API Version: ", info.apiVersion());
 // console.log("Description: ", info.description());
