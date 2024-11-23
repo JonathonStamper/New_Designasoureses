@@ -23,9 +23,10 @@ export default function Home() {
       // });
 
       const data = await response.json();
-      setCollection(data.collections.filter(
-        (item) => item.description && item.description.toLowerCase().includes('flood')
-      ));
+      setCollection(data.collections
+        // .filter(
+        // (item) => item.description && item.description.toLowerCase().includes('flood')
+      );
     };
 
 
