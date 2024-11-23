@@ -6,17 +6,13 @@ import styles from './map.module.css';
 import { renderToString } from "react-dom/server";
 import { MarkerClusterGroup } from "leaflet.markercluster";
 
-const DEFAULT_CENTER = [39.466667, -0.375000];
+const DEFAULT_CENTER = [39.35, -0.3790];
 
 const Map = () => {
   const [activeLayer, setActiveLayer] = useState('sentinel');
 
   const markers = [
-    { latitude: 52.3676, longitude: 4.9041, name: 'Amsterdam', address: 'Dam Square, Amsterdam' },
-    { latitude: 51.9244, longitude: 4.4777, name: 'Rotterdam', address: 'Erasmus Bridge, Rotterdam' },
-    { latitude: 52.0907, longitude: 5.1214, name: 'Utrecht', address: 'Dom Tower, Utrecht' },
-    { latitude: 52.0116, longitude: 4.3571, name: 'The Hague', address: 'Binnenhof, The Hague' },
-    { latitude: 53.2194, longitude: 6.5665, name: 'Groningen', address: 'Grote Markt, Groningen' },
+    { latitude: 39.35, longitude: -0.3790, name: 'Valencia', address: 'City of Arts and Sciences, Valencia' },
   ];
 
   useEffect(() => {
@@ -98,8 +94,8 @@ const Map = () => {
   }, []);
 
   return (
-    <div className="relative">
-      <div id="map" className={`${styles.map} h-[100vh] w-[100vw]`} />
+    <div className="flex flex-1 w-full h-full flex-row relative">
+      <div id="map" className={`${styles.map} h-[100vh] flex flex-1 w-full`} />
     </div>
   );
 };
