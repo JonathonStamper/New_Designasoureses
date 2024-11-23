@@ -7,6 +7,6 @@ export default async function handler(req, res) {
     const collections = await connection.listCollections();
     res.status(200).json(collections);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ error: 'error.message' });
   }
 }
