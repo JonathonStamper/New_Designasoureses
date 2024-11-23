@@ -94,8 +94,8 @@ const Map = () => {
   }, []);
 
   return (
-    <div className="relative">
-      <div id="map" className={`${styles.map} h-[100vh] w-[100vw]`} />
+    <div className="flex flex-1 w-full h-full flex-row relative">
+      <div id="map" className={`${styles.map} h-[100vh] flex flex-1 w-full`} />
     </div>
   );
 };

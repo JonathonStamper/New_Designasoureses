@@ -7,7 +7,7 @@ import BroadcastIcon from '../icons/BroadcastIcon'
 
 const NavBar = () => {
   return (
-    <div className='h-full w-42 bg-lightpurple'>
+    <div className='h-full bg-lightpurple'>
       {/* <p className='text-3xl p-6'>The New Disasters</p> */}
       <div className='flex flex-col w-full gap-2 py-2'>
         <NavButton text="Satelite data" subtext="Predictive insights" url="/map" icon={<WorldIcon />} />
