@@ -5,22 +5,29 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./map.module.css"
 
-const DEFAULT_CENTER = [45.436913, 12.333416]; // Updated to match the example
+const DEFAULT_CENTER = [39.466667, -0.375000]; // Updated to match the example
 
 const Map = () => {
   useEffect(() => {
+    let map;
     var container = L.DomUtil.get("map");
-
+  
     if (container != null) {
       container._leaflet_id = null;
     }
-    var map = L.map("map", {
-      dragging: true, // Enabled dragging on the map
+  
+    map = L.map("map", {
       zoomControl: true,
-    }).setView(DEFAULT_CENTER, 12); // Updated to match the example
-    let osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      dragging: true,
+    }).setView(DEFAULT_CENTER, 12);
+  
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map);
+  
+    return () => {
+      if (map) map.remove();
+    };
   }, []);
 
   return <div id="map" className="map h-full w-full"></div>;
