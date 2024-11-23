@@ -5,21 +5,18 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import styles from './map.module.css';
 import { renderToString } from "react-dom/server";
+import { MarkerClusterGroup } from "leaflet.markercluster";
 
-const DEFAULT_CENTER = [52.370216, 4.895168]; // Center of the Netherlands
+const DEFAULT_CENTER = [52.370216, 4.895168]; 
+const NETHERLANDS_POINTS = [
+  [52.370216, 4.895168], 
+  [51.924420, 4.477125], 
+  [52.090737, 5.122662], 
+  [51.443363, 5.487674], 
+  [52.509539, 6.893445], 
+]; 
 
 const Map = () => {
-  const markers = [
-    { latitude: 52.3676, longitude: 4.9041, name: 'Amsterdam', address: 'Dam Square, Amsterdam' },
-    { latitude: 51.9244, longitude: 4.4777, name: 'Rotterdam', address: 'Erasmus Bridge, Rotterdam' },
-    { latitude: 52.0907, longitude: 5.1214, name: 'Utrecht', address: 'Dom Tower, Utrecht' },
-    { latitude: 52.0116, longitude: 4.3571, name: 'The Hague', address: 'Binnenhof, The Hague' },
-    { latitude: 53.2194, longitude: 6.5665, name: 'Groningen', address: 'Grote Markt, Groningen' },
-    { latitude: 51.4416, longitude: 5.4697, name: 'Eindhoven', address: 'Stratumseind, Eindhoven' },
-    { latitude: 52.1550, longitude: 5.3878, name: 'Amersfoort', address: 'Koppelpoort, Amersfoort' },
-    { latitude: 50.8514, longitude: 5.6900, name: 'Maastricht', address: 'Vrijthof, Maastricht' },
-  ];
-
   useEffect(() => {
     let map;
     const container = L.DomUtil.get("map");
@@ -33,22 +30,33 @@ const Map = () => {
       dragging: true,
     }).setView(DEFAULT_CENTER, 12);
 
-    // Satellite Layer (ESRI World Imagery)
     L.tileLayer("https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
       attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
     }).addTo(map);
 
-    // Add custom markers
-    markers.forEach(marker => {
-      const customIcon = L.divIcon({
-        className: 'custom-icon',
-        html: renderToString(<Marker name={marker.name} />),
-      });
-
-      L.marker([marker.latitude, marker.longitude], { icon: customIcon })
-        .addTo(map)
-        .bindPopup(`<b>${marker.name}</b><br>${marker.address}`);
+    var markers = L.markerClusterGroup({
+      
+      iconCreateFunction: function(cluster) {
+        return L.divIcon({
+          html: `<div className="${styles.customIcon} w-10 h-10 rounded-full overflow-hidden p-4 bg-white">
+            <p className="text-2xl">${cluster.getChildCount()}</p>
+          </div>`,
+          className: styles.customIcon,
+        });
+      },
     });
+
+    NETHERLANDS_POINTS.forEach((point, index) => {
+      const marker = L.marker(point, {
+        icon: L.divIcon({
+          html: renderToString(<Marker name={`Point ${index + 1}`} />),
+          className: styles.customIcon,
+        }),
+      });
+      markers.addLayer(marker);
+    });
+
+    map.addLayer(markers);
 
     return () => {
       if (map) map.remove();

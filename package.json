@@ -9,6 +9,8 @@
   "dependencies": {
     "@next/font": "^14.2.15",
     "@openeo/js-client": "^1.0.0",
+    "leaflet": "^1.7.1",
+    "leaflet.markercluster": "^1.5.3",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
