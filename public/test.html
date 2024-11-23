@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge, chrome=1" />
+    <title>Web Integration with Copernicus Dataspace Ecosystem</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            float: center;
+            font-family: Georgia, serif;
+            background-color: rgb(248, 246, 240);
+        }
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: 30% 70%;
+        }
+
+
+        .text {
+            margin-left: 30px;
+            margin-top: 350px;
+            margin-bottom: 350px;
+            font-size: 7px;
+            padding-left: 20px;
+            font-family: Georgia, serif;
+            float: left;
+            display: flex;
+        }
+
+        #devTestingDemo {
+            height: 100%;
+            width: 100%;
+            margin-right: 10px;
+            float: right;
+
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Title -->
+    <h1>
+        <center>Web Integration with Copernicus Dataspace Ecosystem</center>
+    </h1>
+    <div class="wrapper">
+        <div class="text">
+            <h1>This is a very basic example showing how easy it is to work with maps and satellite imagery!
+            </h1>
+        </div>
+
+        <div id="devTestingDemo"></div>
+    </div>
+
+    <script>
+
+        // OpenStreetMap
+        let osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        });
+
+        // Sentinel Hub WMS service
+        // tiles generated using EPSG:3857 projection - Leaflet takes care of that
+        let baseUrl = "https://sh.dataspace.copernicus.eu/ogc/wms/5aac08b4-8419-4448-b081-f2fc087c3a12";
+
+        function createWmsLayer(layerId) {
+
+            const layer = L.tileLayer.wms(baseUrl, {
+                tileSize: 512,
+                attribution: '&copy; <a href="https://dataspace.copernicus.eu/" target="_blank">Copernicus Data Space Ecosystem</a>',
+                maxcc: 20,
+                minZoom: 6,
+                maxZoom: 16,
+                layers: layerId,
+            });
+            return layer;
+        }
+
+        let ndvi = createWmsLayer("TRUE-COLOR-HIGHLIGHT-OPTIMIZED");
+        let trueColor = createWmsLayer("TRUE-COLOR");
+        let urbanAreas = createWmsLayer("URBAN-AREAS");
+        let sentinel2cloudless = createWmsLayer("SENTINEL-2-CLOUDLESS");
+
+
+        let baseMaps = {
+            'OpenStreetMap': osm
+        };
+        let overlayMaps = {
+            'NDVI': ndvi,
+            'True Color': trueColor,
+            'Urban Area': urbanAreas,
+            'Sentinel-2 Cloudless Mosaic': sentinel2cloudless
+        }
+
+        let map = L.map('devTestingDemo', {
+            center: [45.436913, 12.333416], // lat/lng in EPSG:4326
+            zoom: 12,
+            layers: [osm, sentinel2cloudless]
+        });
+
+        L.control.layers(baseMaps, overlayMaps).addTo(map);
+    </script>
+</body>
+
+</html>
