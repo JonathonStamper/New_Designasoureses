@@ -1,9 +1,9 @@
-import MissionCard from '../components/MissionCard'
-import PlusIcon from '../icons/PlusIcon'
-import CheckIcon from '../icons/CheckIcon'
+import MissionCard from '../../components/MissionCard'
+import PlusIcon from '../../icons/PlusIcon'
+import CheckIcon from '../../icons/CheckIcon'
 import { useState } from 'react'
-import OngoingIcon from '../icons/OngoingIcon'
-import PastIcon from '../icons/PastIcon'
+import OngoingIcon from '../../icons/OngoingIcon'
+import PastIcon from '../../icons/PastIcon'
 
 const Drones = () => {
   const [missions, setMissions] = useState([]);

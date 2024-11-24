@@ -12,6 +12,7 @@ module.exports = {
         'clickedpurple':'#E8DEF8',
         'darkgray':'#79747E',
         'superdarkpurple':'#221B81',
+        'whitegray':'#F9F9FF',
     }
     },
   },
