@@ -1,8 +1,8 @@
 import BackButton from "../../icons/Backbutton";
 import BlackPlusIcon from "../../icons/BlackPlusIcon";
-import TV from '../../public/TV.png'
-import TV2 from '../../public/TV2.png'
-import Image from "next/image";
+// import TV from '../../public/TV.png'
+// import TV2 from '../../public/TV2.png'
+// import Image from "next/image";
 import ShareIcon from '../../icons/ShareIcon'
 import BookmarkIcon from '../../icons/BookmarkIcon'
 import { useRouter } from "next/router";
@@ -15,10 +15,10 @@ const Insights =()=>{
         <div className="mx-8">
             <div onClick={()=>router.push('/drones')}><BackButton/></div>
 
-            <div className="flex lg:flex-row mt-10 md:flex-col">
+            {/* <div className="flex lg:flex-row mt-10 md:flex-col">
                 <Image src={TV}/>
                 <Image src={TV2} className="md:mt-5 lg:ml-20"/>
-            </div>
+            </div> */}
 
             <div className="border-2 border-lightgray mt-8 rounded-lg overflow-auto">
                 <div className="flex flex-row justify-between my-4">
