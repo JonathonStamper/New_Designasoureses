@@ -1,12 +1,14 @@
 import React from 'react'
 import WebIntegrationWithCopernicus from './testmap'
+import { MapSatelliteComponent } from '../components/map/indexMapSatellite'
 
 const Home = () => {
+
   return (
-    <div>
-      <div className="w-full h-screen overflow-hidden" style={{ backgroundImage: 'url(./copernicus.png)', backgroundSize: "cover" }} />
-      </div>
-    
+    <div className="bg-white flex-1 w-full h-full">
+      <MapSatelliteComponent />
+      
+    </div>
   )
 }
 export default Home
