@@ -83,6 +83,7 @@ const Map = ({}) => {
 
     // Add default layers
     satellite.addTo(map);
+    ndvi.addTo(map);
 
     // Add layer control
     L.control.layers(baseMaps, overlayMaps).addTo(map);
