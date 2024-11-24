@@ -30,7 +30,7 @@ const Insights =()=>{
                     <h4 className="font-bold">5 people are close to drowning, action required</h4>
                     <div className="flex flex-row">
                     <p className="mt-1.5">Pirate ipsum arrgh bounty warp jack. Arr pinnace reef landlubber black topsail chandler grapple.
-                        Pirate davy brethren spanish pin cat o'nine ensign rig a.
+                        Pirate davy brethren spanish pin cat o&apos;nine ensign rig a.
                         Spot log me buccaneer blossom. Swab no to pirate driver boatswain.
                     </p>
                    
@@ -45,7 +45,7 @@ const Insights =()=>{
                     <h4 className="font-bold">Building destroyed, Skyscraper has collapsed, don&apos;t enter the area</h4>
                     <div className="flex flex-row">
                     <p className="mt-1.5">Pirate ipsum arrgh bounty warp jack. Arr pinnace reef landlubber black topsail chandler grapple.
-                        Pirate davy brethren spanish pin cat o'nine ensign rig a.
+                        Pirate davy brethren spanish pin cat o&apos;nine ensign rig a.
                         Spot log me buccaneer blossom. Swab no to pirate driver boatswain.
                     </p>
                    
@@ -59,7 +59,7 @@ const Insights =()=>{
                 <div className="bg-whitegray mx-5 border-2 border-darkgray rounded-lg p-2 mt-4">
                 <div className="flex flex-row">
                     <p className="mt-1.5">Pirate ipsum arrgh bounty warp jack. Arr pinnace reef landlubber black topsail chandler grapple.
-                        Pirate davy brethren spanish pin cat o'nine ensign rig a.
+                        Pirate davy brethren spanish pin cat o&apos;nine ensign rig a.
                         Spot log me buccaneer blossom. Swab no to pirate driver boatswain.
                     </p>
                    
@@ -74,7 +74,7 @@ const Insights =()=>{
                     <h4 className="font-bold">Children in danger, trapped on top of car</h4>
                     <div className="flex flex-row">
                     <p className="mt-1.5">Pirate ipsum arrgh bounty warp jack. Arr pinnace reef landlubber black topsail chandler grapple.
-                        Pirate davy brethren spanish pin cat o'nine ensign rig a.
+                        Pirate davy brethren spanish pin cat o&apos;nine ensign rig a.
                         Spot log me buccaneer blossom. Swab no to pirate driver boatswain.
                     </p>
                    
