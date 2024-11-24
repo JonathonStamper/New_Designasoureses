@@ -7,6 +7,7 @@ const MapPage = () => {
   return (
     <div className="bg-white flex-1 w-full h-full">
       <MapComponent />
+      
     </div>
   )
 }
