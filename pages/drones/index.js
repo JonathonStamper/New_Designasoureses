@@ -50,12 +50,12 @@ const Drones = () => {
 
   const filteredMissions = missions.filter((mission) => mission.status === filter);
 
-  console.log(filter)
+  
   return (
     <div className='overflow-auto'>
       <div className='flex justify-between'>
         <h1 className='justify-start mt-5 mx-5 text-3xl'>Drones Overview</h1>
-        <button className='flex flex-row py-2 w-36 h-10 bg-superdarkpurple text-white rounded-full mt-16 mr-10 text-center'
+        <button className='flex items-center gap-3 px-4 flex-row py-2  h-10 bg-superdarkpurple text-white rounded-full mt-16 mr-10 text-center'
           onClick={handleStartMissionClick}
         >
           <PlusIcon />Start mission
@@ -63,12 +63,12 @@ const Drones = () => {
       </div>
 
       <div className='mx-5 mb-5 mt-2 flex'>
-        <button className={`flex flex-row py-2.5 px-6  rounded-lg ${filter === 'Ongoing' ? 'bg-clickedpurple' : 'bg-lightpurple'}`}
+        <button className={`flex items-center  gap-2 flex-row py-2.5 px-6  rounded-lg ${filter === 'Ongoing' ? 'bg-clickedpurple' : 'bg-lightpurple'}`}
           onClick={() => setFilter(old => 'Ongoing')}>
-          <div className={`${filter === 'Ongoing' ? 'block' :'hidden'}`}><CheckIcon/></div>
+          <div className={`${filter === 'Ongoing' ? 'block' :'hidden'} `}><CheckIcon/></div>
           Ongoing
         </button>
-        <button className={`px-4 py-2.5 ml-5 bg-lightpurple flex rounded-lg ${filter === 'Past' ? 'bg-clickedpurple' : 'bg-lightpurple'}`}
+        <button className={`px-4 py-2.5 ml-5 items-center gap-2 bg-lightpurple flex rounded-lg ${filter === 'Past' ? 'bg-clickedpurple' : 'bg-lightpurple'}`}
           onClick={() => setFilter(old => 'Past')}>
           <div className={`${filter === 'Past' ? 'block' :'hidden'}`}><CheckIcon/></div>
           Past
@@ -78,8 +78,8 @@ const Drones = () => {
       {/* Popup for creating a new mission */}
 
       {isPopupOpen && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 w-96 shadow-lg">
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-[400]">
+          <div className="bg-white w-11/12 h-[90] rounded-lg p-6  shadow-lg">
             <h2 className="text-lg font-bold mb-4">Start New Mission</h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
@@ -140,7 +140,7 @@ const Drones = () => {
 
       {console.log(filteredMissions)}
 
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="mt-8 flex flex-wrap gap-4 overflow-y-scroll overflow-hidden">
         {filteredMissions.map((mission) => (
           <MissionCard
             key={mission.id}

@@ -5,3 +5,7 @@ import dynamic from 'next/dynamic';
 export const MapComponent = dynamic(() => import('./map-dealer'), { 
     ssr: false 
 });
+
+export const MapComponentDrone = dynamic(() => import('./map-drone'), { 
+    ssr: false 
+});
