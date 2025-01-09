@@ -7,7 +7,6 @@ const roboto = Roboto({
   subsets: ['latin'],
 })
 
-
 function MyApp({ Component, pageProps }) {
   return (
     <main className={roboto.className}>
