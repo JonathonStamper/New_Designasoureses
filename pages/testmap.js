@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const testmap = () => {
+export const Testmap = () => {
   return (
     <div>testmap</div>
   )
