@@ -1,7 +1,8 @@
 import React from 'react'
 
-export const Testmap = () => {
+export default function Testmap() {
   return (
-    <div>testmap</div>
+    <div>T</div>
   )
 }
+
