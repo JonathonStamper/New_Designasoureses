@@ -19,7 +19,7 @@ export default function SelectedPost({selectedData, open}) {
                 </div>
                 
                 <p className=' px-4 b text-sm rounded-lg '>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                Lorem ipsu dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 </p>
                 </div>
 
